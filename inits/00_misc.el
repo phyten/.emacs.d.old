@@ -67,3 +67,5 @@
 (setq echo-keystrokes 0.1)
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
+;; 自動再読み込み
+(global-auto-revert-mode 1)
