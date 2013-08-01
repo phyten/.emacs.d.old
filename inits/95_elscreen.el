@@ -1,6 +1,6 @@
 ;;====================================
 ;; elscreen
-					;=====================================
+;; =====================================
 (setq elscreen-prefix-key "\C-q")
 (load  "elscreen" "ElScreen" t)
 (setq elscreen-display-tab 6) ; タブの幅（６以上じゃないとダメ）
