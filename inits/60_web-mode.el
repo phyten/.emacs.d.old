@@ -15,7 +15,7 @@
 
 (setq web-mode-engines-alist
       '(("php"    . "\\.html\\'")        
-	("php"    . "\\.phtml\\'"))
+        ("php"    . "\\.phtml\\'"))
 )
 
 ;;; インデント数
