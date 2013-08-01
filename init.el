@@ -1,22 +1,22 @@
-;======================================================================
-; Loadpath関連
-;======================================================================
+;; ======================================================================
+;; Loadpath関連
+;; ======================================================================
 ;; サブディレクトリをすべて読み出す。
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/contrib/lisp")
 (let ((dir (expand-file-name "~/.emacs.d/site-lisp")))
-    (if (member dir load-path) nil
-        (setq load-path (cons dir load-path))
-        (let ((default-directory dir))
-            (load (expand-file-name "subdirs.el") t t t))))
+  (if (member dir load-path) nil
+    (setq load-path (cons dir load-path))
+    (let ((default-directory dir))
+      (load (expand-file-name "subdirs.el") t t t))))
 (let ((dir (expand-file-name "~/.emacs.d/auto-install")))
-    (if (member dir load-path) nil
-        (setq load-path (cons dir load-path))
-        (let ((default-directory dir))
-            (load (expand-file-name "subdirs.el") t t t))))
+  (if (member dir load-path) nil
+    (setq load-path (cons dir load-path))
+    (let ((default-directory dir))
+      (load (expand-file-name "subdirs.el") t t t))))
 
-;elispと設定ファイルのディレクトリをload-pathに追加
-;(setq load-path (cons "~/.lisp" load-path))
+					;elispと設定ファイルのディレクトリをload-pathに追加
+					;(setq load-path (cons "~/.lisp" load-path))
 (setq load-path
       (cons
        (expand-file-name "~/.lisp")
@@ -33,29 +33,20 @@
 
 (require 'package)
 
-; Add package-archives
+					; Add package-archives
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
-; Initialize
+					; Initialize
 (package-initialize)
 
-; melpa.el
+					; melpa.el
 (require 'melpa)
 
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits") ; 設定ファイルがあるディレクトリを指定
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
