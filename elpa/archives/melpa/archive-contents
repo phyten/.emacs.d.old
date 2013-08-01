@@ -199,7 +199,7 @@
 	      (0 2)))
 	    "The WACky WorkSPACE manager for emACS [github]" tar])
  (w3m .
-      [(20130630 1947)
+      [(20130731 2126)
        nil "an Emacs interface to w3m [cvs]" tar])
  (volatile-highlights .
 		      [(20130321 2241)
