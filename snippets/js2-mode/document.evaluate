@@ -1,0 +1,5 @@
+#name : var title = this.evalJS('document.evaluate("//body", document, null, XPathResult.STRING_TYPE, null).stringValue');
+# --
+var ${return} = this.evalJS('document.evaluate("${XPATH}", document, null, XPathResult.STRING_TYPE, null).stringValue');
+$0;
+

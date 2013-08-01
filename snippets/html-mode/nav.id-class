@@ -1,0 +1,6 @@
+#contributor : Jimmy Wu <frozenthrone88@gmail.com>
+#name : <nav id="..." class="...">...</nav>
+# --
+<nav id="$1" class="$2">
+  $0
+</nav>

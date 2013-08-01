@@ -1,0 +1,8 @@
+#name : controller
+#group : controller
+# --
+class ${controller_name} < ${UIViewController}
+  def viewDidLoad
+    super
+  end
+end

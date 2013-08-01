@@ -1,0 +1,3 @@
+#name : 現在のディレクトリ
+# --
+File.expand_path(File.dirname(__FILE__)) + "/${相対パス}"

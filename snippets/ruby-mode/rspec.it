@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: it
+# --
+it "${should ...}" do
+   get '${.../...}'
+   $0
+end

@@ -1,0 +1,5 @@
+#name : for name, value of data
+# --
+for ${name}, ${value} of ${data}
+        $0
+

@@ -1,0 +1,5 @@
+#name : function = (x) -> x * x
+# --
+${function name} = (args) ->
+        $0
+

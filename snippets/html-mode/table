@@ -1,0 +1,8 @@
+#contributor : Jimmy Wu <frozenthrone88@gmail.com>
+#name : <table ...>...</table>
+#group : table
+# --
+<table${1: id="${2:some_id}"}${3: class="${4:some_class}"}${5: summary="${6:some_summary}"}>
+  $0
+</table>
+

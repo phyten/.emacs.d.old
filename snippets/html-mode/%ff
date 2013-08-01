@@ -1,0 +1,5 @@
+#name : <% form_for @... do |...| %> ... <% end %>
+# --
+<% form_for ${@task} do |${form}| %>
+$0
+<% end %>

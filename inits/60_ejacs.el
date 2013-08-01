@@ -1,0 +1,1 @@
+(autoload 'js-console "js-console" nil t)

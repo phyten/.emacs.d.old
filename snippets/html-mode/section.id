@@ -1,0 +1,6 @@
+#contributor : Jimmy Wu <frozenthrone88@gmail.com>
+#name : <section id="...">...</section>
+# --
+<section id="$1">
+  $0
+</section>

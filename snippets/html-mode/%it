@@ -1,0 +1,3 @@
+#name : <%= image_tag.class(" ... ") %>
+# --
+<%= image_tag("${image_file_name}", size: "${x}x${y}", alt: "${alt}", class: "${class}"$0) %>

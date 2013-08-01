@@ -1,0 +1,5 @@
+#name : for val, i in arr
+# --
+for ${val}, ${i} in ${arrat}
+        $0
+

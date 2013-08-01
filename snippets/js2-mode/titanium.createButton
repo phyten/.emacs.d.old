@@ -1,0 +1,15 @@
+#name : Titanium only, create Button
+# --
+var name_of_button = Ti.UI.createButton(
+    {
+        title: ${title},
+        top: ${top},
+        left: ${left},
+        height: ${height},
+        width: ${width}
+    }
+);
+name_of_button.addEventListener('click', function(){
+$0
+});
+
