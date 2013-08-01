@@ -69,3 +69,5 @@
 (setq initial-scratch-message "")
 ;; 自動再読み込み
 (global-auto-revert-mode 1)
+;;タブの代わりに半角スペースを使う
+(setq-default tab-width 4 indent-tabs-mode nil)
