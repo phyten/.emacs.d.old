@@ -5,7 +5,6 @@
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(org-remember-insinuate)
 (setq org-directory "~/memo/")
 (setq org-default-notes-file (concat org-directory "agenda.org"))
 (setq org-remember-templates
@@ -62,93 +61,93 @@
 ;;       (goto-char pos)
 ;;       (setq org-link-search-failed t)
 ;;       (error "No further link found"))))
-(require 'org-exp-bibtex)
+;; (require 'org-exp-bibtex)
 
 
-(setq org-export-latex-coding-system 'euc-jp-unix)
-(setq org-export-latex-date-format "%Y-%m-%d")
-(setq org-export-latex-classes nil)
-(add-to-list 'org-export-latex-classes
-  '("jarticle"
-    "\\documentclass[a4j]{jarticle}"
-    ("\\section{%s}" . "\\section*{%s}")
-    ("\\subsection{%s}" . "\\subsection*{%s}")
-    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-    ("\\paragraph{%s}" . "\\paragraph*{%s}")
-    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-))
+;; (setq org-export-latex-coding-system 'euc-jp-unix)
+;; (setq org-export-latex-date-format "%Y-%m-%d")
+;; (setq org-export-latex-classes nil)
+;; (add-to-list 'org-export-latex-classes
+;;   '("jarticle"
+;;     "\\documentclass[a4j]{jarticle}"
+;;     ("\\section{%s}" . "\\section*{%s}")
+;;     ("\\subsection{%s}" . "\\subsection*{%s}")
+;;     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+;; ))
 
-(defun org-previous-visible-link ()
-  "Move backward to the previous link.
-If the link is in hidden text, expose it."
-  (interactive)
-  (when (and org-link-search-failed (eq this-command last-command))
-    (goto-char (point-max))
-    (message "Link search wrapped back to end of buffer"))
-  (setq org-link-search-failed nil)
-  (let* ((pos (point))
-         (ct (org-context))
-         (a (assoc :link ct))
-         srch)
-    (if a (goto-char (nth 1 a)))
-    (while (and (setq srch (re-search-backward org-any-link-re nil t))
-                (goto-char (match-beginning 0))
-                (not (eq (org-invisible-p) 'org-link))))
-    (if srch
-        (goto-char (match-beginning 0))
-      (goto-char pos)
-      (setq org-link-search-failed t)
-      (error "No further link found"))))
-(define-key org-mode-map "\M-n" 'org-next-visible-link)
-(define-key org-mode-map "\M-p" 'org-previous-visible-link)
-;; latex
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-ct" 'org-todo)
-(setq org-log-done '(state))
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (flyspell-mode t)
-             (auto-fill-mode 0)
-             (local-set-key [(control return)] 'newline-and-indent)))
+;; (defun org-previous-visible-link ()
+;;   "Move backward to the previous link.
+;; If the link is in hidden text, expose it."
+;;   (interactive)
+;;   (when (and org-link-search-failed (eq this-command last-command))
+;;     (goto-char (point-max))
+;;     (message "Link search wrapped back to end of buffer"))
+;;   (setq org-link-search-failed nil)
+;;   (let* ((pos (point))
+;;          (ct (org-context))
+;;          (a (assoc :link ct))
+;;          srch)
+;;     (if a (goto-char (nth 1 a)))
+;;     (while (and (setq srch (re-search-backward org-any-link-re nil t))
+;;                 (goto-char (match-beginning 0))
+;;                 (not (eq (org-invisible-p) 'org-link))))
+;;     (if srch
+;;         (goto-char (match-beginning 0))
+;;       (goto-char pos)
+;;       (setq org-link-search-failed t)
+;;       (error "No further link found"))))
+;; (define-key org-mode-map "\M-n" 'org-next-visible-link)
+;; (define-key org-mode-map "\M-p" 'org-previous-visible-link)
+;; ;; latex
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; (define-key global-map "\C-cl" 'org-store-link)
+;; (define-key global-map "\C-ca" 'org-agenda)
+;; (define-key global-map "\C-ct" 'org-todo)
+;; (setq org-log-done '(state))
+;; (add-hook 'org-mode-hook
+;;           '(lambda ()
+;;              (flyspell-mode t)
+;;              (auto-fill-mode 0)
+;;              (local-set-key [(control return)] 'newline-and-indent)))
 
-(setq org-export-latex-classes
-        '(("article"
-     "\\documentclass{jsarticle}
-\\renewcommand{\\baselinestretch}{1.2}
-\\usepackage{graphicx}
-\\usepackage{longtable}
-\\usepackage{float}
-\\usepackage{wrapfig}
-\\usepackage{soul}
-\\usepackage{amssymb}
-\\usepackage[dvipdfmx]{hyperref}"
-     ("\\section{%s}" . "\\section*{%s}")
-     ("\\subsection{%s}" . "\\subsection*{%s}")
-     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-     ("\\paragraph{%s}" . "\\paragraph*{%s}")
-     ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
-
-;; 論文
-(add-to-list 'org-export-latex-classes
-	     '("thesis"
-	       "
-	       \\documentclass{jsarticle}
-	       \\usepackage[dvipdfmx]{graphicx}
-	       \\usepackage[utf8]{inputenc}
-	       \\usepackage[T1]{fontenc}
-	       "
-	       ("\\chapter{%s}" . "\\chapter*{%s}")
-	       ("\\section{%s}" . "\\section*{%s}")
-	       ("\\subsection{%s}" . "\\subsection*{%s}")
-	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;; (setq org-export-latex-classes
+;;         '(("article"
+;;      "\\documentclass{jsarticle}
+;; \\renewcommand{\\baselinestretch}{1.2}
+;; \\usepackage{graphicx}
+;; \\usepackage{longtable}
+;; \\usepackage{float}
+;; \\usepackage{wrapfig}
+;; \\usepackage{soul}
+;; \\usepackage{amssymb}
+;; \\usepackage[dvipdfmx]{hyperref}"
+;;      ("\\section{%s}" . "\\section*{%s}")
+;;      ("\\subsection{%s}" . "\\subsection*{%s}")
+;;      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;      ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 
-(setq org-latex-to-pdf-process
-      '("mypdflatex %b" "mypdflatex %b"))
-(setq org-export-with-sub-superscripts nil)
+;; ;; 論文
+;; (add-to-list 'org-export-latex-classes
+;; 	     '("thesis"
+;; 	       "
+;; 	       \\documentclass{jsarticle}
+;; 	       \\usepackage[dvipdfmx]{graphicx}
+;; 	       \\usepackage[utf8]{inputenc}
+;; 	       \\usepackage[T1]{fontenc}
+;; 	       "
+;; 	       ("\\chapter{%s}" . "\\chapter*{%s}")
+;; 	       ("\\section{%s}" . "\\section*{%s}")
+;; 	       ("\\subsection{%s}" . "\\subsection*{%s}")
+;; 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;; 	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;; 	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+;; (setq org-latex-to-pdf-process
+;;       '("mypdflatex %b" "mypdflatex %b"))
+;; (setq org-export-with-sub-superscripts nil)
 
