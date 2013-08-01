@@ -65,3 +65,5 @@
  '(safe-local-variable-values (quote ((clmemo-mode . t)))))
 ;; コマンドのエコーを早くする
 (setq echo-keystrokes 0.1)
+;; scratchの初期メッセージ消去
+(setq initial-scratch-message "")
