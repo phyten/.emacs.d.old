@@ -724,7 +724,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20130715 1530)
+	      [(20130803 1653)
 	       ((cl-lib
 		 (0 1))
 		(dash
@@ -1112,9 +1112,6 @@
  (pyregexp .
 	   [(20130531 929)
 	    nil "[deprecated, use visual-regexp/visual-regexp-steroids instead] A Python regexp/replace command for Emacs with interactive visual feedback [github]" tar])
- (pylint .
-	 [(20121112 1335)
-	  nil "minor mode for running `pylint' [hg]" single])
  (py-import-check .
 		  [(20130802 1150)
 		   nil "Finds the unused python imports using importchecker [github]" single])
@@ -1192,7 +1189,7 @@
 	[(20130324 1305)
 	 nil "Visual Popup User Interface [github]" single])
  (pophint .
-	  [(20130802 48)
+	  [(20130803 1142)
 	   ((popup
 	     (0 5 0))
 	    (log4e
@@ -1902,7 +1899,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20130803 129)
+	[(20130803 1750)
 	 nil "control Git from Emacs [github]" tar])
  (mag-menu .
 	   [(20130224 56)
@@ -2355,7 +2352,7 @@
 	     [(20130723 2333)
 	      nil "Extensions to `icomplete.el'. [wiki]" single])
  (icicles .
-	  [(20130802 2259)
+	  [(20130803 2038)
 	   nil "Minibuffer input completion and cycling. [wiki]" tar])
  (ibuffer-vc .
 	     [(20130728 926)
@@ -3077,7 +3074,7 @@
 			      (24 1)))
 			    "Change mode line color with Flycheck status [github]" single])
  (flycheck .
-	   [(20130731 1956)
+	   [(20130803 2037)
 	    ((s
 	      (1 6 0))
 	     (dash
@@ -4364,5 +4361,8 @@
 	    nil "Python TDD minor mode [github]" single])
  (abc-mode .
 	   [(20130607 917)
-	    nil "Major mode for editing abc music files [github]" single]))
+	    nil "Major mode for editing abc music files [github]" single])
+ (pylint .
+	 [(20121112 1335)
+	  nil "minor mode for running `pylint' [hg]" single]))
 

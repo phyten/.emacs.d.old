@@ -153,3 +153,5 @@
                ad-do-it)))))
 
 (yas/advise-indent-function 'ruby-indent-line)
+
+(define-obsolete-variable-alias 'last-command-char 'last-command-event)
