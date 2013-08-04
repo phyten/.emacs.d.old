@@ -65,3 +65,4 @@
  '(safe-local-variable-values (quote ((clmemo-mode . t)))))
 ;; コマンドのエコーを早くする
 (setq echo-keystrokes 0.1)
+(global-auto-revert-mode 1)

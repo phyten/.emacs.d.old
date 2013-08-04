@@ -174,7 +174,7 @@
 	     (1 2)))
 	   "Chat via WeeChat's relay protocol in Emacs [github]" tar])
  (websocket .
-	    [(20130706 1746)
+	    [(20130803 1409)
 	     nil "Emacs WebSocket client and server [github]" single])
  (weblogger .
 	    [(20110926 1218)
@@ -536,9 +536,6 @@
 	    ((swbuff
 	      (19991231 1800)))
 	    "Modifications to David Ponce's swbuff [wiki]" single])
- (swbuff .
-	 [(20041012 718)
-	  nil "Quick switch between Emacs buffers. [cvs]" single])
  (svg-mode-line-themes .
 		       [(20130614 1613)
 			((xmlgen
@@ -949,6 +946,11 @@
 		  ((ruby-mode
 		    (1 0)))
 		  "Minor mode for Behaviour and Test Driven [github]" single])
+ (ruby-refactor .
+		[(20130803 955)
+		 ((ruby-mode
+		   (1 2)))
+		 "A minor mode which presents various Ruby refactoring helpers. [github]" single])
  (ruby-interpolation .
 		     [(20120326 1309)
 		      nil "Ruby string interpolation helpers [github]" single])
@@ -1112,6 +1114,9 @@
  (pyregexp .
 	   [(20130531 929)
 	    nil "[deprecated, use visual-regexp/visual-regexp-steroids instead] A Python regexp/replace command for Emacs with interactive visual feedback [github]" tar])
+ (pylint .
+	 [(20121112 1335)
+	  nil "minor mode for running `pylint' [hg]" single])
  (py-import-check .
 		  [(20130802 1150)
 		   nil "Finds the unused python imports using importchecker [github]" single])
@@ -1821,9 +1826,6 @@
  (maxframe .
 	   [(20120725 1149)
 	    nil "maximize the emacs frame based on display size [github]" single])
- (maude-mode .
-	     [(20130604 925)
-	      nil "Emacs mode for the programming language Maude [svn]" single])
  (markup-faces .
 	       [(20130117 1146)
 		nil "collection of faces for markup language modes [github]" single])
@@ -1899,7 +1901,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20130803 1750)
+	[(20130804 315)
 	 nil "control Git from Emacs [github]" tar])
  (mag-menu .
 	   [(20130224 56)
@@ -2129,9 +2131,6 @@
 	 (inflections
 	  (1 1)))
 	"build functions which contextually jump between files [github]" single])
- (jtags .
-	[(20111208 1922)
-	 nil "enhanced tags functionality for Java development [git]" tar])
  (jss .
       [(20130508 1623)
        ((emacs
@@ -2162,9 +2161,6 @@
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode [github]" tar])
- (js-comint .
-	    [(20080530 957)
-	     nil "Run javascript in an inferior process window. [svn]" single])
  (jknav .
 	[(20121006 1325)
 	 nil "Automatically enable j/k keys for line-based navigation [github]" single])
@@ -2352,7 +2348,7 @@
 	     [(20130723 2333)
 	      nil "Extensions to `icomplete.el'. [wiki]" single])
  (icicles .
-	  [(20130803 2038)
+	  [(20130804 229)
 	   nil "Minibuffer input completion and cycling. [wiki]" tar])
  (ibuffer-vc .
 	     [(20130728 926)
@@ -2791,7 +2787,7 @@
 		       (0 1 1)))
 		     "Fringe version of git-gutter.el [github]" single])
  (git-gutter+ .
-	      [(20130801 1143)
+	      [(20130803 2130)
 	       nil "Manage Git hunks straight from the buffer [github]" single])
  (git-gutter .
 	     [(20130613 2232)
@@ -4359,10 +4355,19 @@
  (abl-mode .
 	   [(20120718 1655)
 	    nil "Python TDD minor mode [github]" single])
+ (maude-mode .
+	     [(20130604 925)
+	      nil "Emacs mode for the programming language Maude [svn]" single])
+ (jtags .
+	[(20111208 1922)
+	 nil "enhanced tags functionality for Java development [git]" tar])
+ (js-comint .
+	    [(20080530 957)
+	     nil "Run javascript in an inferior process window. [svn]" single])
  (abc-mode .
 	   [(20130607 917)
 	    nil "Major mode for editing abc music files [github]" single])
- (pylint .
-	 [(20121112 1335)
-	  nil "minor mode for running `pylint' [hg]" single]))
+ (swbuff .
+	 [(20041012 718)
+	  nil "Quick switch between Emacs buffers. [cvs]" single]))
 
