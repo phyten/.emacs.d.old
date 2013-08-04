@@ -7,6 +7,7 @@
 (setq elscreen-tab-display-kill-screen nil) ; タブの左端の×を非表示
 (global-set-key "\C-\M-h" 'elscreen-previous)
 (global-set-key "\C-\M-l" 'elscreen-next)
+(define-key elscreen-map "\C-c" 'elscreen-clone)
 (require 'elscreen-dired)
 
 
