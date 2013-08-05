@@ -182,7 +182,7 @@
 	       (1 6 8)))
 	     "Weblog maintenance via XML-RPC APIs [bzr]" single])
  (web-mode .
-	   [(20130730 21)
+	   [(20130804 1700)
 	    nil "major mode for editing html templates [github]" single])
  (web .
       [(20130429 1926)
@@ -229,7 +229,7 @@
 	       [(20080221 651)
 		nil "Make marks visible. [wiki]" single])
  (virtualenvwrapper .
-		    [(20130803 759)
+		    [(20130804 1726)
 		     ((dash
 		       (1 5 0))
 		      (s
@@ -392,6 +392,9 @@
 	 ((emacs
 	   (23 1)))
 	 "Tiny Tiny RSS elisp bindings [github]" single])
+ (tt-mode .
+	  [(20130804 1145)
+	   nil "Emacs major mode for editing Template Toolkit files. [github]" single])
  (truthy .
 	 [(20121106 1302)
 	  ((list-utils
@@ -536,6 +539,9 @@
 	    ((swbuff
 	      (19991231 1800)))
 	    "Modifications to David Ponce's swbuff [wiki]" single])
+ (swbuff .
+	 [(20041012 718)
+	  nil "Quick switch between Emacs buffers. [cvs]" single])
  (svg-mode-line-themes .
 		       [(20130614 1613)
 			((xmlgen
@@ -694,7 +700,7 @@
 		  (24 1)))
 		"a dark colorful theme for Emacs24. [github]" single])
  (solarized-theme .
-		  [(20130725 601)
+		  [(20130804 1358)
 		   nil "The Solarized color theme, ported to Emacs. [github]" tar])
  (snippet .
 	  [(20130210 1815)
@@ -721,7 +727,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20130803 1653)
+	      [(20130804 1820)
 	       ((cl-lib
 		 (0 1))
 		(dash
@@ -936,7 +942,7 @@
       [(20130521 902)
        nil "Emacs integration for rvm [github]" single])
  (rust-mode .
-	    [(20130724 1711)
+	    [(20130803 1831)
 	     nil "A major emacs mode for editing Rust source code [github]" single])
  (ruby-tools .
 	     [(20121008 1851)
@@ -1154,7 +1160,7 @@
 			 (0 8 0)))
 		       "Snippets for processing-mode [github]" tar])
  (processing-mode .
-		  [(20130801 1521)
+		  [(20130804 1120)
 		   nil "Major mode for Processing 2.0 [github]" single])
  (proc-net .
 	   [(20130322 12)
@@ -1194,7 +1200,7 @@
 	[(20130324 1305)
 	 nil "Visual Popup User Interface [github]" single])
  (pophint .
-	  [(20130803 1142)
+	  [(20130804 1927)
 	   ((popup
 	     (0 5 0))
 	    (log4e
@@ -1712,7 +1718,7 @@
 	 [(20130723 2348)
 	  nil "Extensions to `mouse.el'. [wiki]" single])
  (motion-mode .
-	      [(20130701 1300)
+	      [(20130801 1041)
 	       ((flymake-easy
 		 (0 7))
 		(flymake-cursor
@@ -1826,6 +1832,9 @@
  (maxframe .
 	   [(20120725 1149)
 	    nil "maximize the emacs frame based on display size [github]" single])
+ (maude-mode .
+	     [(20130604 925)
+	      nil "Emacs mode for the programming language Maude [svn]" single])
  (markup-faces .
 	       [(20130117 1146)
 		nil "collection of faces for markup language modes [github]" single])
@@ -2131,6 +2140,9 @@
 	 (inflections
 	  (1 1)))
 	"build functions which contextually jump between files [github]" single])
+ (jtags .
+	[(20111208 1922)
+	 nil "enhanced tags functionality for Java development [git]" tar])
  (jss .
       [(20130508 1623)
        ((emacs
@@ -2161,6 +2173,9 @@
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode [github]" tar])
+ (js-comint .
+	    [(20080530 957)
+	     nil "Run javascript in an inferior process window. [svn]" single])
  (jknav .
 	[(20121006 1325)
 	 nil "Automatically enable j/k keys for line-based navigation [github]" single])
@@ -2348,7 +2363,7 @@
 	     [(20130723 2333)
 	      nil "Extensions to `icomplete.el'. [wiki]" single])
  (icicles .
-	  [(20130804 229)
+	  [(20130804 2227)
 	   nil "Minibuffer input completion and cycling. [wiki]" tar])
  (ibuffer-vc .
 	     [(20130728 926)
@@ -2588,7 +2603,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130802 1656)
+       [(20130804 1901)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -3208,7 +3223,7 @@
 		 (0)))
 	       "let there be <leader> [github]" single])
  (evil .
-       [(20130802 2228)
+       [(20130804 1513)
 	((undo-tree
 	  (0 6 3)))
 	"Extensible Vi layer for Emacs. [git]" tar])
@@ -3289,7 +3304,7 @@
 	 [(20130701 1012)
 	  nil "Erlang major mode [github]" tar])
  (ergoemacs-mode .
-		 [(20130802 1309)
+		 [(20130804 52)
 		  ((org-cua-dwim
 		    (0 5)))
 		  "A minor mode, a keybinding set based on ergonomics. [github]" tar])
@@ -3330,11 +3345,11 @@
 	  (1 47)))
 	"Evernote Picker [github]" tar])
  (epc .
-      [(20130312 2201)
+      [(20130804 1428)
        ((concurrent
 	 (0 3 1))
 	(ctable
-	 (0 1 1)))
+	 (0 1 2)))
        "A RPC stack for the Emacs Lisp [github]" tar])
  (enotify .
 	  [(20130407 1548)
@@ -3517,7 +3532,7 @@
 			 (1 9)))
 		       "(de)HTMLization hooks for edit-server.el [github]" single])
  (edit-server .
-	      [(20130528 1011)
+	      [(20130804 2144)
 	       nil "server that responds to edit requests from Chrome [github]" single])
  (edit-list .
 	    [(20100930 1643)
@@ -4355,19 +4370,7 @@
  (abl-mode .
 	   [(20120718 1655)
 	    nil "Python TDD minor mode [github]" single])
- (maude-mode .
-	     [(20130604 925)
-	      nil "Emacs mode for the programming language Maude [svn]" single])
- (jtags .
-	[(20111208 1922)
-	 nil "enhanced tags functionality for Java development [git]" tar])
- (js-comint .
-	    [(20080530 957)
-	     nil "Run javascript in an inferior process window. [svn]" single])
  (abc-mode .
 	   [(20130607 917)
-	    nil "Major mode for editing abc music files [github]" single])
- (swbuff .
-	 [(20041012 718)
-	  nil "Quick switch between Emacs buffers. [cvs]" single]))
+	    nil "Major mode for editing abc music files [github]" single]))
 
