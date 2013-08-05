@@ -20,6 +20,7 @@
         ("Log" ?l "** %?\n   %i\n   %a\n   %U" nil "Inbox")
         ))
 (setq org-export-html-validation-link nil)
+(setq org-export-html-postamble nil)
 ;; (defvar org-code-reading-software-name nil)
 ;; ;; ~/memo/code-reading.org に記録する
 ;; (defvar org-code-reading-file "code-reading.org")

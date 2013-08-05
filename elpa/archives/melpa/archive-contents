@@ -695,7 +695,7 @@
 		(0 2 0)))
 	      "SourceTalk (http://sourcetalk.net) plugin for Emacs [github]" single])
  (soothe-theme .
-	       [(20130709 1838)
+	       [(20130805 1205)
 		((emacs
 		  (24 1)))
 		"a dark colorful theme for Emacs24. [github]" single])
@@ -3837,10 +3837,10 @@
 	     [(20130619 1241)
 	      nil "Perl code editing commands for Emacs [github]" single])
  (confluence-edit .
-		  [(20110609 1452)
+		  [(20130804 2241)
 		   nil "Emacs mode for editing confluence content buffers [svn]" single])
  (confluence .
-	     [(20120117 906)
+	     [(20130804 2240)
 	      ((xml-rpc
 		(1 6 4))
 	       (confluence-edit
