@@ -8,9 +8,9 @@
 (require 'auto-complete-config)
 (ac-config-default)
 ;; (define-key ac-mode-map (kbd "M-i") 'ac-complete-yasnippet)
-;; (ac-set-trigger-key "TAB")
-(setq ac-auto-start t)
-
+;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(ac-set-trigger-key "M-i")
+(setq ac-auto-start nil)
 (add-to-list 'ac-modes 'scss-mode)
 (add-to-list 'ac-modes 'web-mode)
 (add-to-list 'ac-modes 'coffee-mode)
