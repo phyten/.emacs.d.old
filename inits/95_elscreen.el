@@ -1,6 +1,6 @@
 ;;====================================
 ;; elscreen
-					;=====================================
+;; =====================================
 (setq elscreen-prefix-key "\C-q")
 (load  "elscreen" "ElScreen" t)
 (setq elscreen-display-tab 6) ; タブの幅（６以上じゃないとダメ）
@@ -27,3 +27,7 @@
 
 (eval-after-load "elscreen"
   '(add-hook 'elscreen-screen-update-hook 'elscreen-frame-title-update))
+
+(define-key elscreen-map "\C-c" 'elscreen-clone)
+(define-key elscreen-map "c"    'elscreen-clone)
+'(add-hook 'elscreen-clone-hook '(lambda () (interactive) (switch-to-buffer nil)))

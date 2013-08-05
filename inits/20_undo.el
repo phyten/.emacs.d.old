@@ -6,7 +6,7 @@
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode)
   (define-key undo-tree-map (kbd "C-_") 'undo-tree-visualize)
-  (define-key undo-tree-visualizer-map (kbd "C-g") 'undo-tree-visualizer-quit)
+  (define-key undo-tree-visualizer-mode-map (kbd "C-g") 'undo-tree-visualizer-quit)
   )
 (global-set-key (kbd "M-z") 'undo-tree-redo)
 (setq undo-limit 600000)

@@ -32,3 +32,28 @@
              (setq grep-find-command "find . -type f -print0 | xargs -0 -e grep -ns ")
              (require 'wdired)
              ))
+
+;;別のディレクトリに行ったときもソート方法を保存する
+(defadvice dired-advertised-find-file
+  (around dired-sort activate)
+  (let ((sw dired-actual-switches))
+    ad-do-it
+    (if (string= major-mode 'dired-mode)
+        (progn
+          (setq dired-actual-switches sw)
+          (dired-sort-other dired-actual-switches)))
+    ))
+
+(defadvice dired-my-up-directory
+  (around dired-sort activate)
+  (let ((sw dired-actual-switches))
+    ad-do-it
+    (if (string= major-mode 'dired-mode)
+        (progn
+          (setq dired-actual-switches sw)
+          (dired-sort-other dired-actual-switches)))
+    ))
+
+;;ディレクトリを最初に表示する
+(setq insert-directory-program "gls")
+(setq dired-listing-switches "-AFl --group-directories-first")
