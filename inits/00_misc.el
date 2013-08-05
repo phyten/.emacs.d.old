@@ -65,13 +65,9 @@
  '(safe-local-variable-values (quote ((clmemo-mode . t)))))
 ;; コマンドのエコーを早くする
 (setq echo-keystrokes 0.1)
-<<<<<<< HEAD
-(global-auto-revert-mode 1)
-=======
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
 ;; 自動再読み込み
 (global-auto-revert-mode 1)
 ;;タブの代わりに半角スペースを使う
 (setq-default tab-width 4 indent-tabs-mode nil)
->>>>>>> d14e597d09284ba38dd7201ca92376d2732ff734
