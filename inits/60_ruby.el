@@ -96,7 +96,9 @@
        ;; (regexp-opt '("=" "+=" "-=" "*=" "/=" "%=" "**=" "&=" "|=" "^=" "<<=" ">>=" "&&=" "||="))
        `("\\(?:&&\\|\\*\\*\\|<<\\|>>\\|||\\|[%&*+/|^-]\\)?=>?" 0 font-lock-warning-face)
        ;; class name
-       '("[A-Z][a-z0-9]+" 0 font-lock-variable-name-face)
+       '("\\( \\|\n\\|(\\|::\\)[A-Z][a-z0-9A-Z_]+" 0 font-lock-variable-name-face)
+       ;; symbols
+       '("\\( \\|\n\\|(\\|\\[\\):[a-z0-9_]+" 0 font-lock-variable-name-face)
 
        ;; xmpfilter
        '("# =>.*$" 0 font-lock-warning-face prepend)
@@ -106,9 +108,6 @@
        '("\\(\\$\\|@\\|@@\\)\\([a-zA-Z0-9]\\|_\\)+" 0 font-lock-variable-name-face)
        '("\\(^\\|[^_:.@$]\\|\\.\\.\\)\\b\\(nil\\|self\\|true\\|false\\)\\>"
          2 font-lock-variable-name-face)
-       ;; variables
-       '("\\(\\$\\([^a-zA-Z0-9 \n]\\|[0-9]\\)\\)\\W"
-         1 font-lock-variable-name-face)
        ;; embedded document
        '(ruby-font-lock-docs
          0 font-lock-comment-face t)
