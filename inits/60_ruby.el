@@ -67,7 +67,7 @@
         "assert_kind_of" "assert_match" "assert_nil" "assert_no_match"
         "assert_not_equal" "assert_not_nil" "assert_not_same" "assert_nothing_raised"
         "assert_nothing_thrown" "assert_operator" "assert_raises" "assert_respond_to"
-        "assert_same" "assert_send" "assert_throws" "assert"
+        "assert_same" "assert_send" "assert_throws" "assert" "raise_error"
         ;; ^Qrspec^P
         "context" "specify" "it"  "should" "should_not"
         ;; ^Qexpectations^P
@@ -98,7 +98,7 @@
        ;; class name
        '("\\( \\|\n\\|(\\|::\\)[A-Z][a-z0-9A-Z_]+" 0 font-lock-variable-name-face)
        ;; symbols
-       '("\\( \\|\n\\|(\\|\\[\\)\\(:[a-z0-9_]+\\)" 2 font-lock-variable-name-face)
+       '("\\( \\|\n\\|(\\|\\[\\)\\(:[a-z0-9_]+\\)" 2 font-lock-reference-face)
 
        ;; xmpfilter
        '("# =>.*$" 0 font-lock-warning-face prepend)
