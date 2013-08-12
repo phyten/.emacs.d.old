@@ -69,7 +69,7 @@
         "assert_nothing_thrown" "assert_operator" "assert_raises" "assert_respond_to"
         "assert_same" "assert_send" "assert_throws" "assert" "raise_error"
         ;; ^Qrspec^P
-        "context" "specify" "it"  "should" "should_not"
+        "context" "specify" "it"  "should" "should_not" "its"
         ;; ^Qexpectations^P
         "expect"
         ;; other keywords 追加してください。
