@@ -13,6 +13,8 @@
              '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist
              '("Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.gemspec$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist
              '("ruby" . ruby-mode))
 (autoload 'run-ruby "inf-ruby"
