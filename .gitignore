@@ -1,6 +1,7 @@
 /backup
 /auto-save-list
 /history
+/eshell/history
 *.elc
 *~
 .#*
