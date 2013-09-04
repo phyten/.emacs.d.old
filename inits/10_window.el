@@ -6,6 +6,7 @@
   (other-window 1))
 
 (global-set-key (kbd "M-t") 'other-window-or-split)
+(global-set-key (kbd "C-t") 'other-window-or-split)
 
 ;; windowを分けても折り返す
 (setq truncate-partial-width-windows nil)

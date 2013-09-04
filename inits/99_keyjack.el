@@ -13,6 +13,7 @@
           ("\C-z" . undo)
           ("\M-2" . set-mark-command)
           ("\M-t" . other-window-or-split)
+          ("\C-t" . other-window-or-split)
           ([(C x) (C n)] . cua-set-rectangle-mark)
           ([(s-return)] . cua-set-rectangle-mark)
           ([(C x) (down)] . windmove-down)
