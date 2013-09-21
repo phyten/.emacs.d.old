@@ -101,6 +101,8 @@
        '("\\( \\|\n\\|(\\|::\\)[A-Z][a-z0-9A-Z_]+" 0 font-lock-variable-name-face)
        ;; symbols
        '("\\( \\|\n\\|(\\|\\[\\)\\(:[a-z0-9_]+\\)" 2 font-lock-reference-face)
+       ;; symbols
+       '("\\( \\|\n\\|(\\|\\[\\)\\([a-z0-9_]+:\\)" 2 font-lock-variable-name-face)       
 
        ;; xmpfilter
        '("# =>.*$" 0 font-lock-warning-face prepend)
