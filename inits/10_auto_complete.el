@@ -10,7 +10,7 @@
 ;; (define-key ac-mode-map (kbd "M-i") 'ac-complete-yasnippet)
 ;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 (ac-set-trigger-key "M-i")
-(setq ac-auto-start nil)
+(setq ac-auto-start t)
 (add-to-list 'ac-modes 'scss-mode)
 (add-to-list 'ac-modes 'web-mode)
 (add-to-list 'ac-modes 'coffee-mode)
