@@ -9,7 +9,11 @@
 ;; (defalias 'exit 'save-buffers-kill-emacs)
 
 ;; run server
-(require 'server)
-(unless (server-running-p)
-(server-start))
-(global-set-key (kbd "C-x C-c") 'server-edit)
+
+(if (eq window-system 'ns)
+    (progn
+      (require 'server)
+      (unless (server-running-p)
+        (server-start))
+      (global-set-key (kbd "C-x C-c") 'server-edit)
+      ))

@@ -1,6 +1,6 @@
 ;; undohist
-(when (require 'undohist nil t)
-  (undohist-initialize))
+;; (when (require 'undohist nil t)
+;;   (undohist-initialize))
 
 ;; undo-tree
 (when (require 'undo-tree nil t)

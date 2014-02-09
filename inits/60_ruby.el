@@ -38,6 +38,7 @@
 
 ;; Rinari
 (require 'rinari)
+(global-rinari-mode)
 
 
 ;; ruby-block
@@ -158,3 +159,12 @@
 (yas/advise-indent-function 'ruby-indent-line)
 
 (define-obsolete-variable-alias 'last-command-char 'last-command-event)
+
+(require 'rcodetools)
+(setq rct-find-tag-if-available nil)
+(defun ruby-mode-hook-rcodetools ()
+  (define-key ruby-mode-map "\M-\C-i" 'rct-complete-symbol)
+  (define-key ruby-mode-map "\C-c\C-k" 'ruby-toggle-buffer)
+  (define-key ruby-mode-map "\C-c\C-d" 'xmp)
+  (define-key ruby-mode-map "\C-c\C-f" 'rct-ri))
+(add-hook 'ruby-mode-hook 'ruby-mode-hook-rcodetools)

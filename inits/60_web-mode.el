@@ -13,9 +13,11 @@
 (add-to-list 'auto-mode-alist '("\\.erb$"       . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html.erb$"  . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?$"     . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl?$"     . web-mode))
 
 (setq web-mode-engines-alist
-      '(("php"    . "\\.html\\'")        
+      '(("angular"    . "\\.html\\'")  
+        ("template-toolkit"    . "\\.tpl\\'")
         ("php"    . "\\.phtml\\'"))
 )
 
@@ -29,3 +31,7 @@
   (setq web-mode-java-offset   2)
   (setq web-mode-asp-offset    2))
 (add-hook 'web-mode-hook 'web-mode-hook)
+
+(define-key web-mode-map (kbd "C-c C-n") 'web-mode-element-end)
+(define-key web-mode-map (kbd "C-c C-p") 'web-mode-element-beginning)
+(define-key web-mode-map (kbd "C-c C-k") 'web-mode-element-kill)

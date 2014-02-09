@@ -1,23 +1,26 @@
 ;; font
 
 ;; font設定
-(set-face-attribute 'default nil
-		    :family "monaco"
-		    :height 160)
-(set-fontset-font nil
-                  'japanese-jisx0208
-                  (font-spec :family "Hiragino_Maru_Gothic_ProN"))
 
-;; (set-fontset-font nil
-;; 		   '(#x3040 . #x30ff)
-;; 		   (font-spec :family "NfMotoyaCedar")
-;;  )
+(if (eq window-system 'ns)
+    (progn
+      (set-face-attribute 'default nil
+                          :family "monaco"
+                          :height 160)
+      (set-fontset-font nil
+                        'japanese-jisx0208
+                        (font-spec :family "Hiragino_Maru_Gothic_ProN"))
 
-(setq face-font-rescale-alist
-      '((".*monaco.*" . 1.0)
-	(".*Hiragino_Maru_Gothic_ProN.*" . 1.3)
-	("-cdac$" . 1.3)))
+      ;; (set-fontset-font nil
+      ;; 		   '(#x3040 . #x30ff)
+      ;; 		   (font-spec :family "NfMotoyaCedar")
+      ;;  )
 
+      (setq face-font-rescale-alist
+            '((".*monaco.*" . 1.0)
+              (".*Hiragino_Maru_Gothic_ProN.*" . 1.3)
+              ("-cdac$" . 1.3)))
+      ))
 
 
 ;; フォント設定

@@ -18,6 +18,6 @@
 (define-key anything-map (kbd "M-v") 'anything-previous-source)
 (eval-after-load "anything"
   '(define-key anything-map (kbd "C-h") 'delete-backward-char))
-(key-chord-define-global "jk" 'anything)
 ;; get past kill-ring pushing M-y (it is more convenient than normal mode)
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
+(key-chord-define-global "jk" 'anything)

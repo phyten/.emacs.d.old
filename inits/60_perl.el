@@ -131,35 +131,35 @@
 	    (perlplus-setup)))
 
 ;; perltidy
-(defun perltidy-region ()
-  "Run perltidy on the current region."
-  (interactive)
-  (save-excursion
-    (shell-command-on-region (point) (mark) "perltidy -q" nil t)))
-(defun perltidy-defun ()
-  "Run perltidy on the current defun."
-  (interactive)
-  (save-excursion (mark-defun)
-		  (perltidy-region)))
+;; (defun perltidy-region ()
+;;   "Run perltidy on the current region."
+;;   (interactive)
+;;   (save-excursion
+;;     (shell-command-on-region (point) (mark) "perltidy -q" nil t)))
+;; (defun perltidy-defun ()
+;;   "Run perltidy on the current defun."
+;;   (interactive)
+;;   (save-excursion (mark-defun)
+;; 		  (perltidy-region)))
 
-(setq cperl-indent-level 4
-      cperl-continued-statement-offset 4
-      cperl-close-paren-offset -4
-      cperl-label-offset -4
-      cperl-comment-column 40
-      cperl-highlight-variables-indiscriminately t
-      cperl-indent-parens-as-block t
-      cperl-tab-always-indent nil
-      cperl-font-lock t)
-(add-hook 'cperl-mode-hook
-          '(lambda ()
-             (progn
-               (setq indent-tabs-mode nil)
-               (setq tab-width nil)
+;; (setq cperl-indent-level 4
+;;       cperl-continued-statement-offset 4
+;;       cperl-close-paren-offset -4
+;;       cperl-label-offset -4
+;;       cperl-comment-column 40
+;;       cperl-highlight-variables-indiscriminately t
+;;       cperl-indent-parens-as-block t
+;;       cperl-tab-always-indent nil
+;;       cperl-font-lock t)
+;; (add-hook 'cperl-mode-hook
+;;           '(lambda ()
+;;              (progn
+;;                (setq indent-tabs-mode nil)
+;;                (setq tab-width nil)
 	       
-					; perl-completion
-               (require 'auto-complete)
-               (require 'perl-completion)
-               (add-to-list 'ac-sources 'ac-source-perl-completion)
-               (perl-completion-mode t)
-	       )))
+;; 					; perl-completion
+;;                (require 'auto-complete)
+;;                (require 'perl-completion)
+;;                (add-to-list 'ac-sources 'ac-source-perl-completion)
+;;                (perl-completion-mode t)
+;; 	       )))
