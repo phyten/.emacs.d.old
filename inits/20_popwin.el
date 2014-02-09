@@ -1,7 +1,5 @@
 (require 'popwin)
 (popwin-mode 1)
-(require 'popwin)
-(popwin-mode 1)
 (setq display-buffer-function 'popwin:display-buffer)
 
 ;; direx-el
