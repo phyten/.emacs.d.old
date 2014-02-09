@@ -278,17 +278,19 @@ mouse-2: find this node in other window"))
   (unless (direx:item-children item)
     (direx:item-insert-children item)))
 
-(defun* direx:item-delete (item &key recursive)
+(defun* direx:item-delete (item)
   (let* ((overlay (direx:item-overlay item))
          (start (overlay-start overlay))
          (end (overlay-end overlay))
          (buffer-read-only nil))
     (delete-region start end)
-    (delete-overlay overlay)
-    (when (and recursive
-               (not (direx:item-leaf-p item)))
-      (dolist (child (direx:item-children item))
-        (direx:item-delete child :recursive t)))))
+    (delete-overlay overlay)))
+
+(defun direx:item-delete-recursively (item)
+  (direx:item-delete item)
+  (unless (direx:item-leaf-p item)
+    (dolist (child (direx:item-children item))
+      (direx:item-delete-recursively child))))
 
 (defun direx:item-change-icon (item new-icon)
   (let ((buffer-read-only nil))
@@ -336,6 +338,11 @@ mouse-2: find this node in other window"))
   (unless (direx:item-open item)
     (direx:item-expand item)))
 
+(defun direx:item-expand-recursively (item)
+  (direx:item-expand item)
+  (dolist (child (direx:item-children item))
+    (direx:item-expand-recursively child)))
+
 (defun direx:item-collapse (item)
   (unless (direx:item-leaf-p item)
     (setf (direx:item-open item) nil)
@@ -351,7 +358,7 @@ mouse-2: find this node in other window"))
       (direx:item-collapse item)
     (direx:item-expand item)))
 
-(defun* direx:item-refresh (item &key recursive)
+(defmethod direx:item-refresh ((item direx:item))
   (when (and (not (direx:item-leaf-p item))
              (direx:item-children item))
     (loop with point = (overlay-end (direx:item-overlay item))
@@ -370,15 +377,17 @@ mouse-2: find this node in other window"))
           collect new-child into new-children
           finally
           (dolist (old-child old-children)
-            (direx:item-delete old-child :recursive t))
-          (setf (direx:item-children item) new-children)
-          (when recursive
-            (dolist (new-child new-children)
-              (direx:item-refresh new-child :recursive t))))))
+            (direx:item-delete-recursively old-child))
+          (setf (direx:item-children item) new-children))))
+
+(defun direx:item-refresh-recursively (item)
+  (direx:item-refresh item)
+  (dolist (child (direx:item-children item))
+    (direx:item-refresh-recursively child)))
 
 (defun* direx:item-refresh-parent (item &key recursive)
   (direx:awhen (direx:item-parent item)
-    (direx:item-refresh it :recursive recursive)))
+    (direx:item-refresh-recursively it)))
 
 
 
@@ -691,7 +700,7 @@ mouse-2: find this node in other window"))
 
 (defun direx:previous-item (&optional arg)
   (interactive "p")
-  (direx:next-item (if (or (null arg) (> arg 0)) -1 1)))
+  (direx:next-item (if (null arg) -1 (- arg))))
 
 (defun direx:up-item-1 (item)
   (loop with parent = (direx:item-parent item)
@@ -743,7 +752,7 @@ mouse-2: find this node in other window"))
 (defun direx:refresh-whole-tree (&optional item)
   (interactive)
   (setq item (or item (direx:item-at-point!)))
-  (direx:item-refresh (direx:item-root item) :recursive t)
+  (direx:item-refresh-recursively (direx:item-root item))
   (direx:move-to-item-name-part item))
 
 (defun direx:find-item (&optional item)
@@ -767,14 +776,38 @@ mouse-2: find this node in other window"))
   (setq item (or item (direx:item-at-point!)))
   (if (direx:item-leaf-p item)
       (direx:find-item item)
-    (direx:item-toggle item)
-    (direx:move-to-item-name-part item)))
+    (direx:toggle-item item)))
 
-(defun direx:toggle-item ()
+(defun direx:expand-item (&optional item)
   (interactive)
-  (let ((item (direx:item-at-point!)))
-    (direx:item-toggle item)
-    (direx:move-to-item-name-part item)))
+  (setq item (or item (direx:item-at-point!)))
+  (direx:item-expand item)
+  (let ((children (direx:item-children item)))
+    (when (and (= (length children) 1)
+               (direx:item-node-p (car children)))
+      ;; Also expands the sub directory
+      (direx:expand-item (car children))))
+  (direx:move-to-item-name-part item))
+
+(defun direx:expand-item-recursively (&optional item)
+  (interactive)
+  (setq item (or item (direx:item-at-point!)))
+  (direx:item-expand-recursively item)
+  (direx:move-to-item-name-part item))
+
+(defun direx:collapse-item (&optional item)
+  (interactive)
+  (setq item (or item (direx:item-at-point!)))
+  (direx:item-collapse item)
+  (direx:move-to-item-name-part item))
+
+(defun direx:toggle-item (&optional item)
+  (interactive)
+  (setq item (or item (direx:item-at-point!)))
+  (if (direx:item-open item)
+      (direx:collapse-item item)
+    (direx:expand-item item))
+  (direx:move-to-item-name-part item))
 
 (defun direx:mouse-1 (event)
   (interactive "e")
@@ -809,13 +842,13 @@ mouse-2: find this node in other window"))
     (define-key map (kbd "RET")         'direx:maybe-find-item)
     (define-key map (kbd "TAB")         'direx:toggle-item)
     (define-key map (kbd "i")           'direx:toggle-item)
-    (define-key map (kbd "q")           'quit-window)
+    (define-key map (kbd "E")           'direx:expand-item-recursively)
     (define-key map (kbd "g")           'direx:refresh-whole-tree)
     (define-key map [mouse-1]           'direx:mouse-1)
     (define-key map [mouse-2]           'direx:mouse-2)
     map))
 
-(define-derived-mode direx:direx-mode nil "Direx"
+(define-derived-mode direx:direx-mode special-mode "Direx"
   ""
   (set (make-local-variable 'direx:root-item) nil)
   (setq buffer-read-only t
@@ -870,10 +903,12 @@ mouse-2: find this node in other window"))
     (direx:maybe-goto-current-buffer-item buffer)
     buffer))
 
+;;;###autoload
 (defun direx:jump-to-directory ()
   (interactive)
   (switch-to-buffer (direx:jump-to-directory-noselect)))
 
+;;;###autoload
 (defun direx:jump-to-directory-other-window ()
   (interactive)
   (switch-to-buffer-other-window (direx:jump-to-directory-noselect)))
