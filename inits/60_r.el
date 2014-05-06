@@ -15,4 +15,4 @@
 ;; (define-key 'ess-mode-map "\C-cr" 'anything-for-R)
 ;; (define-key 'inferior-ess-mode-map "\C-cr" 'anything-for-R)
 
-(require 'auto-complete-acr)
+;; (require 'auto-complete-acr)
