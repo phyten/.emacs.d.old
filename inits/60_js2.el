@@ -14,3 +14,4 @@
               (set (make-local-variable 'indent-line-function) 'js-indent-line)))
 
 (require 'nodejs-repl)
+(add-hook 'js2-mode-hook 'rainbow-delimiters-mode)

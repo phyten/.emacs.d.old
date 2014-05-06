@@ -26,10 +26,32 @@
 (setq hippie-expand-try-functions-list
       (cons 'yas/hippie-try-expand  hippie-expand-try-functions-list))
 
-;; ruby-electric
-;; 対応するカッコやendを自動補完してくれる
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+(setq ruby-deep-indent-paren-style nil)
+(defadvice ruby-indent-line (after unindent-closing-paren activate)
+  (let ((column (current-column))
+        indent offset)
+    (save-excursion
+      (back-to-indentation)
+      (let ((state (syntax-ppss)))
+        (setq offset (- column (current-column)))
+        (when (and (eq (char-after) ?\))
+                   (not (zerop (car state))))
+          (goto-char (cadr state))
+          (setq indent (current-indentation)))))
+    (when indent
+      (indent-line-to indent)
+      (when (> offset 0) (forward-char offset)))))
+
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+     (key-combo-mode t)
+     (electric-indent-mode t)
+     (electric-layout-mode t)))
+
+;; ;; ruby-electric
+;; ;; 対応するカッコやendを自動補完してくれる
+;; (require 'ruby-electric)
+;; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 
 ;; PATHの追加
 (dolist (dir (mapcar 'expand-file-name '("/usr/local/bin")))
@@ -42,14 +64,14 @@
 
 
 ;; ruby-block
-(condition-case err
-    (progn
-      (require 'ruby-block)
-      (setq ruby-block-highlight-toggle t)
-      (defun ruby-mode-hook-ruby-block()
-        (ruby-block-mode t))
-      (add-hook 'ruby-mode-hook 'ruby-mode-hook-ruby-block))
-  (error (message "failed: %s" err)))
+;; (condition-case err
+;;     (progn
+;;       (require 'ruby-block)
+;;       (setq ruby-block-highlight-toggle t)
+;;       (defun ruby-mode-hook-ruby-block()
+;;         (ruby-block-mode t))
+;;       (add-hook 'ruby-mode-hook 'ruby-mode-hook-ruby-block))
+;;   (error (message "failed: %s" err)))
 
 
 
@@ -168,3 +190,48 @@
   (define-key ruby-mode-map "\C-c\C-d" 'xmp)
   (define-key ruby-mode-map "\C-c\C-f" 'rct-ri))
 (add-hook 'ruby-mode-hook 'ruby-mode-hook-rcodetools)
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (make-local-variable 'ac-ignore-case)
+            (setq ac-ignore-case nil)))
+
+(add-hook 'ruby-mode-hook 'rainbow-delimiters-mode)
+
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+
+(defun load-auto-complete ()
+  (define-key ac-menu-map "\C-n" 'ac-next)
+  (define-key ac-menu-map "\C-p" 'ac-previous)
+
+  (setq ac-auto-show-menu 0.5)
+  (setq ac-menu-height 20)
+
+  (robe-mode))
+
+; robe
+(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+(autoload 'robe-ac-setup "robe-ac" "robe auto-complete" nil nil)
+(add-hook 'robe-mode-hook 'robe-ac-setup)
+
+(add-hook 'ruby-mode-hook '(lambda ()
+                             (load-auto-complete)
+                             ))
+
+;; RBENV
+(require 'rbenv)
+(global-rbenv-mode)
+
+(eval-after-load "ruby-mode"
+  '(progn
+     (require 'smartparens-ruby)
+     (set-face-attribute 'sp-show-pair-match-face nil
+                         :background "grey20" :foreground "green"
+                         :weight 'semi-bold)))
+
+(add-hook 'ruby-mode-hook 'show-smartparens-mode)
+
+(add-hook 'ruby-mode-hook ;; or any major-mode-hooks
+  (lambda ()
+  (smart-newline-mode t)))

@@ -6,7 +6,7 @@
     (progn
       (set-face-attribute 'default nil
                           :family "monaco"
-                          :height 160)
+                          :height 150)
       (set-fontset-font nil
                         'japanese-jisx0208
                         (font-spec :family "Hiragino_Maru_Gothic_ProN"))
@@ -18,8 +18,8 @@
 
       (setq face-font-rescale-alist
             '((".*monaco.*" . 1.0)
-              (".*Hiragino_Maru_Gothic_ProN.*" . 1.3)
-              ("-cdac$" . 1.3)))
+              (".*Hiragino_Maru_Gothic_ProN.*" . 1.2)
+              ("-cdac$" . 1.2)))
       ))
 
 

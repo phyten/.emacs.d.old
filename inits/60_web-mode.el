@@ -35,3 +35,37 @@
 (define-key web-mode-map (kbd "C-c C-n") 'web-mode-element-end)
 (define-key web-mode-map (kbd "C-c C-p") 'web-mode-element-beginning)
 (define-key web-mode-map (kbd "C-c C-k") 'web-mode-element-kill)
+
+(sp-with-modes '(web-mode)
+  (sp-local-pair "IF" "END"
+                 :unless '(sp-in-string-or-word-p)
+                 :post-handlers '(
+                                  (space-and-space-on-each-side "SPC")
+                                  (space-on-each-side "=" "#")
+                                  ))
+  (sp-local-pair "UNLESS" "END"
+                 :unless '(sp-in-string-or-word-p)
+                 :post-handlers '(
+                                  (space-and-space-on-each-side "SPC")
+                                  (space-on-each-side "=" "#")
+                                  ))
+  (sp-local-pair "FOREACH" "END"
+                 :unless '(sp-in-string-or-word-p)
+                 :post-handlers '(
+                                  (space-and-space-on-each-side "SPC")
+                                  (space-on-each-side "=" "#")
+                                  ))
+  (sp-local-pair "WHILE" "END"
+                 :unless '(sp-in-string-or-word-p)
+                 :post-handlers '(
+                                  (space-and-space-on-each-side "SPC")
+                                  (space-on-each-side "=" "#")
+                                  ))
+  (sp-local-pair "WHILE" "END"
+                 :unless '(sp-in-string-or-word-p)
+                 :post-handlers '(
+                                  (space-and-space-on-each-side "SPC")
+                                  (space-on-each-side "=" "#")
+                                  ))
+
+  )

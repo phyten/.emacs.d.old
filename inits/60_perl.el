@@ -163,3 +163,9 @@
 ;;                (add-to-list 'ac-sources 'ac-source-perl-completion)
 ;;                (perl-completion-mode t)
 ;; 	       )))
+
+(add-hook 'cperl-mode-hook 'rainbow-delimiters-mode)
+
+(add-hook 'cperl-mode-hook ;; or any major-mode-hooks
+  (lambda ()
+  (smart-newline-mode t)))

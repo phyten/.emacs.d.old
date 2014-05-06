@@ -31,6 +31,7 @@
           ([(C x) (C z)] . keyboard-quit)
           ([(C x) (p)] . git-gutter:previous-hunk)
           ([(C x) (n)] . git-gutter:next-hunk)
+          ("\M-i" . auto-complete)
           ))
 
 (easy-mmode-define-minor-mode my-keyjack-mode "Grab keys"

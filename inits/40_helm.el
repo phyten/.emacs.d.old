@@ -1,3 +1,5 @@
+(setq recentf-max-saved-items 5000)
+
 (when (require 'helm-config nil t)
   (helm-mode 1)
 
@@ -61,11 +63,15 @@
   (add-hook
    $hook (lambda ()
            (local-set-key (kbd "s-i") 'helm-css-scss)
-           (local-set-key (kbd "s-I") 'helm-css-scss-back-to-last-point))))
+           ;; (local-set-key (kbd "s-I") 'helm-css-scss-back-to-last-point)
+           )))
 
 (define-key isearch-mode-map (kbd "s-i") 'helm-css-scss-from-isearch)
 (define-key helm-css-scss-map (kbd "s-i") 'helm-css-scss-multi-from-helm-css-scss)
 
 (require 'ac-helm)  ;; Not necessary if using ELPA package
-(global-set-key (kbd "M-i") 'ac-complete-with-helm)
-(define-key ac-complete-mode-map (kbd "M-i") 'ac-complete-with-helm)
+
+(global-set-key (kbd "s-I") 'helm-ls-git-ls)
+
+(require 'helm-descbinds)
+(helm-descbinds-mode)

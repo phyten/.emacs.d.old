@@ -71,3 +71,8 @@
 (global-auto-revert-mode 1)
 ;;タブの代わりに半角スペースを使う
 (setq-default tab-width 4 indent-tabs-mode nil)
+
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
+(require 'smooth-scroll)
+(smooth-scroll-mode -1)
