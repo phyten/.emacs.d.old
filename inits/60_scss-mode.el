@@ -22,6 +22,14 @@
   (insert ";")
   (backward-char)
   )
+
+(defun iwb ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
+
   ;; (newline-and-indent))
 
 ;; ;; scss-mode
@@ -34,17 +42,10 @@
           (lambda ()
             (define-key scss-mode-map "\M-{" 'my-css-electric-pair-brace)
             (define-key scss-mode-map ":" 'my-colon-space)
+            (define-key scss-mode-map (kbd "C-c TAB") 'iwb)
             (setq css-indent-offset 2)
-            (setq scss-compile-at-save nil)
-            (setq ac-sources '(
-                               ac-source-words-in-all-buffer
-                               ac-source-dictionary
-                               ))            
             ))
 (add-to-list 'ac-modes 'scss-mode)
-
-(require 'flymake-sass)
-(add-hook 'scss-mode-hook 'flymake-sass-load)
 
 (require 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
