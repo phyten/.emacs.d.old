@@ -53,11 +53,6 @@
 ;; (require 'ruby-electric)
 ;; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 
-;; PATHの追加
-(dolist (dir (mapcar 'expand-file-name '("/usr/local/bin")))
-  (setenv "PATH" (concat dir ":" (getenv "PATH")))
-  (setq exec-path (append (list dir) exec-path)))
-
 ;; Rinari
 (require 'rinari)
 (global-rinari-mode)
@@ -135,18 +130,18 @@
        '("\\(\\$\\|@\\|@@\\)\\([a-zA-Z0-9]\\|_\\)+" 0 font-lock-variable-name-face)
        '("\\(^\\|[^_:.@$]\\|\\.\\.\\)\\b\\(nil\\|self\\|true\\|false\\)\\>"
          2 font-lock-variable-name-face)
-       ;; embedded document
-       '(ruby-font-lock-docs
-         0 font-lock-comment-face t)
-       '(ruby-font-lock-maybe-docs
-         0 font-lock-comment-face t)
-       ;; ^Q"here" document^P
-       '(ruby-font-lock-here-docs
-         0 sh-heredoc-face t)
-       '(ruby-font-lock-maybe-here-docs
-         0 sh-heredoc-face t)
-       `(,ruby-here-doc-beg-re
-         0 sh-heredoc-face t)
+       ;; ;; embedded document
+       ;; '(ruby-font-lock-docs
+       ;;   0 font-lock-comment-face t)
+       ;; '(ruby-font-lock-maybe-docs
+       ;;   0 font-lock-comment-face t)
+       ;; ;; ^Q"here" document^P
+       ;; '(ruby-font-lock-here-docs
+       ;;   0 sh-heredoc-face t)
+       ;; '(ruby-font-lock-maybe-here-docs
+       ;;   0 sh-heredoc-face t)
+       ;; `(,ruby-here-doc-beg-re
+       ;;   0 sh-heredoc-face t)
        ;; general delimited string
        '("\\(^\\|[[ \t\n<+(,=]\\)\\(%[xrqQwW]?\\([^<[{(a-zA-Z0-9 \n]\\)[^\n\\\\]*\\(\\\\.[^\n\\\\]*\\)*\\(\\3\\)\\)"
          (2 font-lock-string-face t))

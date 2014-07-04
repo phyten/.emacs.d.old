@@ -5,6 +5,9 @@
       '(
         anything-exit-minibuffer
         backward-delete-char
+        cperl-electric-backspace
+        cperl-electric-semi
+        org-seq-home
         ruby-electric-close-matching-char
         ruby-electric-matching-char
         ruby-electric-quote
@@ -18,6 +21,7 @@
 (setq mc/cmds-to-run-once
       '(
         anything-show-kill-ring
+        org-self-insert-command
         ruby-electric-space
         sane-next-line
         sane-previous-line

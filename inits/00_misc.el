@@ -27,7 +27,7 @@
 (set-scroll-bar-mode nil)
 (scroll-bar-mode -1)
 ;; 背景を透過に設定
-(set-frame-parameter nil 'alpha 100)
+;; (set-frame-parameter nil 'alpha 100)
 ;; バックアップファイルを作成しない
 (setq make-backup-files nil)
 ;; 対応を表示する
@@ -76,3 +76,9 @@
 
 (require 'smooth-scroll)
 (smooth-scroll-mode -1)
+
+;; PATHの追加
+(dolist (dir (mapcar 'expand-file-name '("/usr/local/bin")))
+  (setenv "PATH" (concat dir ":" (getenv "PATH")))
+  (setq exec-path (append (list dir) exec-path)))
+
