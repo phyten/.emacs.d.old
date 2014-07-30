@@ -155,5 +155,3 @@
       (if buffer-menu-com
           (funcall buffer-menu-com)
         (call-interactively 'ibuffer)))))
-
-(key-chord-define-global "fd" 'my-buffer-menu)       ;;キーボードのfとdを同時に押すことで実行

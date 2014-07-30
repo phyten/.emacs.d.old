@@ -71,8 +71,8 @@
 
 (require 'ac-helm)  ;; Not necessary if using ELPA package
 
-(global-set-key (kbd "s-I") 'helm-ls-git-ls)
 (global-set-key (kbd "C-M-i") 'helm-git-files)
+(key-chord-define-global "fd" 'helm-git-files)
 
 (require 'helm-descbinds)
 (helm-descbinds-mode)

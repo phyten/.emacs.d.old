@@ -1,10 +1,9 @@
 ;;====================================
 ;; dired
 ;;====================================
-(load "dired-x")
-(add-hook 'dired-load-hook (lambda () (load "dired-x")))
+;; (load "dired-x")
+;; (add-hook 'dired-load-hook (lambda () (load "dired-x")))
 ;; wdired
-; (autoload 'wdired-change-to-wdired-mode "wdired")
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 ;; 今日変更されたファイルをハイライト
@@ -55,5 +54,11 @@
     ))
 
 ;;ディレクトリを最初に表示する
-(setq insert-directory-program "gls")
-(setq dired-listing-switches "-AFl --group-directories-first")
+;; (setq insert-directory-program "gls")
+;; (setq dired-listing-switches "-AFl --group-directories-first")
+
+;; dired-subtree
+(define-key dired-mode-map "i" 'dired-subtree-insert)
+(define-key dired-mode-map "\C-i" 'dired-subtree-insert)
+(define-key dired-mode-map "k" 'dired-subtree-remove)
+(define-key dired-mode-map "\C-k" 'dired-subtree-remove)
