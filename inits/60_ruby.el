@@ -42,11 +42,6 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (key-combo-mode t)
-             (electric-indent-mode t)
-             (electric-layout-mode t)))
 
 ;; ;; ruby-electric
 ;; ;; 対応するカッコやendを自動補完してくれる
