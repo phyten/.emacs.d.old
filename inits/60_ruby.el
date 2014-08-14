@@ -44,7 +44,6 @@
 
 (add-hook 'ruby-mode-hook
           '(lambda ()
-             (key-combo-mode t)
              (electric-indent-mode t)
              (electric-layout-mode t)))
 
@@ -284,3 +283,5 @@
 (add-hook 'ruby-mode-hook ;; or any major-mode-hooks
           (lambda ()
             (smart-newline-mode t)))
+
+(define-key ruby-mode-map (kbd "C-M-h") nil)
