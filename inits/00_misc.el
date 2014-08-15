@@ -82,3 +82,4 @@
   (setenv "PATH" (concat dir ":" (getenv "PATH")))
   (setq exec-path (append (list dir) exec-path)))
 
+(setq echo-keystrokes 0)
