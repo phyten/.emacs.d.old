@@ -16,6 +16,7 @@
         seq-home
         skeleton-pair-insert-maybe
         sp--self-insert-command
+        wdired-finish-edit
         ))
 
 (setq mc/cmds-to-run-once
